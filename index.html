@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Computer Science and Computer Applications – Power Point Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b1020;--card:#131a30;--line:#25304f;--tx:#e8ecf8;--mut:#8f9bbd;--ac:#38bdf8;--ac2:#818cf8}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Space Grotesk','Noto Sans Tamil',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;
+background-image:radial-gradient(circle at 15% 0%,color-mix(in srgb,var(--ac) 22%,transparent),transparent 45%),radial-gradient(circle at 90% 20%,color-mix(in srgb,var(--ac2) 18%,transparent),transparent 40%),linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:auto,auto,40px 40px,40px 40px;background-attachment:fixed;transition:.4s}
+.wrap{max-width:1100px;margin:auto;padding:40px 20px 60px}
+header{text-align:center;margin-bottom:34px}
+.tag{font-family:'JetBrains Mono',monospace;color:var(--ac);font-size:14px;letter-spacing:.5px}
+h1{font-size:clamp(28px,5vw,46px);margin:8px 0;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+header p{color:var(--mut)}
+.sub-h{font-size:clamp(16px,2.6vw,22px);font-weight:600;color:var(--tx);margin-bottom:6px}
+.pm{font-size:clamp(24px,4.2vw,36px);font-weight:700;color:#fbbf24;margin-bottom:12px;letter-spacing:.5px}
+.subs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px;margin:0 auto 34px}
+.sub{--a:#38bdf8;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;color:var(--tx);text-align:left;cursor:pointer;font:inherit;position:relative;overflow:hidden;transition:.25s}
+.sub:hover{transform:translateY(-4px);border-color:var(--a)}
+.sub.on{border-color:var(--a);box-shadow:0 0 0 1px var(--a),0 12px 36px color-mix(in srgb,var(--a) 30%,transparent);background:linear-gradient(160deg,color-mix(in srgb,var(--a) 18%,var(--card)),var(--card))}
+.sub .ic{font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--a);background:color-mix(in srgb,var(--a) 15%,transparent);width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px}
+.sub b{display:block;font-size:13px;color:var(--a);font-family:'JetBrains Mono',monospace;margin-bottom:4px}
+.sub span{font-size:18px;font-weight:700}
+#panel{display:none}
+#panel.show{display:block;animation:up .4s}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.ptitle{display:flex;align-items:center;gap:10px;font-size:22px;margin-bottom:18px}
+.ptitle i{width:10px;height:28px;background:var(--ac);border-radius:4px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.col{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.col h3{font-size:17px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.col h3 em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ac);border:1px solid var(--ac);padding:2px 8px;border-radius:99px}
+.ch{width:100%;display:flex;gap:12px;align-items:center;background:transparent;border:1px solid transparent;border-radius:12px;padding:10px;color:var(--tx);font:inherit;text-align:left;cursor:pointer;transition:.2s}
+.ch:hover{background:color-mix(in srgb,var(--ac) 12%,transparent);border-color:var(--ac);transform:translateX(4px)}
+.ch .n{flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac) 18%,transparent);color:var(--ac);font-family:'JetBrains Mono',monospace;font-size:14px}
+.ch .t{flex:1;line-height:1.35;font-size:15px}
+.ch .go{color:var(--mut)}
+.soon{background:var(--card);border:1px dashed var(--line);border-radius:18px;padding:40px;text-align:center;color:var(--mut)}
+#viewer{position:fixed;inset:0;background:rgba(4,7,16,.85);backdrop-filter:blur(6px);display:none;flex-direction:column;z-index:10;padding:14px}
+#viewer.show{display:flex}
+.vbar{display:flex;gap:10px;align-items:center;margin-bottom:10px;color:var(--tx)}
+.vbar strong{flex:1;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vbar a,.vbar button{background:var(--ac);color:#06101f;border:0;padding:9px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;font-size:14px}
+.vbar button{background:#2a3457;color:var(--tx)}
+iframe{flex:1;border:0;border-radius:14px;background:#fff;width:100%}
+footer{text-align:center;margin-top:44px}
+footer .card{display:inline-block;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:16px;padding:18px 28px;line-height:1.7;font-size:15px;color:var(--mut)}
+footer .card div{font-weight:700}
+.f1{color:#fbbf24;font-size:20px}.f2{color:#34d399;font-size:17px}.f3{color:#38bdf8;font-size:16px}.f4{color:#f472b6;font-size:16px}
+
+.ch .t{overflow-wrap:anywhere}
+@media(max-width:600px){
+body{background-attachment:scroll;background-size:auto,auto,28px 28px,28px 28px}
+.wrap{padding:22px 12px 36px}
+header{margin-bottom:20px}
+h1{font-size:26px;line-height:1.2}
+.sub-h{font-size:15px}
+.pm{font-size:24px}
+header p{font-size:14px}
+.subs{gap:10px;margin-bottom:22px}
+.sub{padding:12px;border-radius:14px}
+.sub .ic{width:38px;height:38px;font-size:16px;margin-bottom:8px;border-radius:10px}
+.sub b{font-size:11px}
+.sub span{font-size:14px;line-height:1.25;display:block}
+.sub:hover{transform:none}
+.ptitle{font-size:17px;margin-bottom:12px}
+.ptitle i{height:22px}
+.cols{gap:14px}
+.col{padding:12px;border-radius:14px}
+.col h3{font-size:15px}
+.ch{padding:9px 6px;gap:10px}
+.ch .n{width:32px;height:32px;font-size:13px}
+.ch .t{font-size:14px}
+.ch:hover{transform:none}
+#viewer{padding:8px;padding-top:max(8px,env(safe-area-inset-top));padding-bottom:max(8px,env(safe-area-inset-bottom))}
+.vbar{flex-wrap:wrap;gap:8px}
+.vbar strong{flex:1 1 100%;order:-1;white-space:normal;font-size:14px;line-height:1.3}
+.vbar a,.vbar button{flex:1;text-align:center;padding:10px 8px;font-size:13px}
+iframe{border-radius:10px}
+footer{margin-top:30px}
+footer .card{display:block;padding:14px 12px}
+.f1{font-size:16px}.f2{font-size:15px}.f3{font-size:14px}.f4{font-size:14px}
+}
+</style></head><body>
+<div class="wrap">
+<header><h1>Computer Science and Computer Applications</h1>
+<div class="sub-h">(12th Standard and 11th Standard)</div>
+<div class="pm">Power Point Materials</div>
+<p>Choose a subject, then pick a chapter in Tamil or English medium</p></header>
+<div class="subs" id="subs"></div>
+<div id="panel"><div class="ptitle"><i></i><span id="ptitle"></span></div><div id="cols"></div></div>
+<footer><div class="card"><div class="f1">P.M.SURESH, M.Sc., B.Ed., M.Phil.,</div><div class="f2">Computer Instructor Gr-1</div><div class="f3">Govt. Boys Hr. Sec. School, Podaturpet-631208</div><div class="f4">Thiruvallur Dist</div></div></footer>
+</div>
+<div id="viewer"><div class="vbar"><strong id="vt"></strong><a id="vo" target="_blank" rel="noopener">Open in new tab ↗</a><button id="vc">✕ Close</button></div><iframe id="fr" allow="autoplay"></iframe></div>
+<script>
+const DATA={"cs12": [{"n": 1, "en": "Function", "ta": "செயற்கூறு", "enUrl": "https://drive.google.com/file/d/1TcSzhe2lTrxltgocposgT367rChHwSDH/view?usp=drive_link", "taUrl": "https://drive.google.com/file/d/1APqjsFYyDSSeNvuxWDje0SdKqEYLcJtI/view?usp=sharing"}, {"n": 2, "en": "Data Abstraction", "ta": "தரவு அருவமாக்கம்", "enUrl": "https://drive.google.com/file/d/1FYmN2ceZDujvCVVgIgyw6LBu4KEO6qum/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1w1cTPkVgIb4srHylMcDZrHdWjDCJnFf_/view?usp=sharing"}, {"n": 3, "en": "Scoping", "ta": "வரையெல்லை", "enUrl": "https://drive.google.com/file/d/1Qv_uhO1zKyB54X9WUbNZpeF7ZfxyYJVe/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1vwaEIBHgUT6mtYYPvouQtjKOvApQ8hiu/view?usp=sharing"}, {"n": 4, "en": "Algorithmic Strategies", "ta": "நெறிமுறையின் யுக்திகள்", "enUrl": "https://drive.google.com/file/d/1MznrRiZ5enJo3Jxi66wHdIj0WFJFQTrc/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1icNSdjy04X52xjFe7DAGJqah2rTqFjG2/view?usp=sharing"}, {"n": 5, "en": "Python - Variables and Operators", "ta": "பைத்தான் அறிமுகம் – மாறிகள் மற்றும் செயற்குறிகள்", "enUrl": "https://drive.google.com/file/d/1TfrYUkeGc3NHnz_28K70dZuAc5-CbkAT/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1Yv1Hy6RLp_Dgj0H-3yjZ1E8c328_UupD/view?usp=sharing"}, {"n": 6, "en": "Control Structures", "ta": "கட்டுப்பாட்டுக் கட்டமைப்புகள்", "enUrl": "https://drive.google.com/file/d/1TjZEOizX-PdmyuO5SaUaA17q0SWxK4zL/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1sPRfzyYHpnkjAgX9ay8SpYzZiSosJ2mA/view?usp=sharing"}, {"n": 7, "en": "Python Functions", "ta": "பைத்தான் செயற்கூறுகள்", "enUrl": "https://drive.google.com/file/d/1m4UXSt1JmRbT4W0ZeV2pHUXqxlwS_DO9/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1dJV1dejXtoG5AWEA2yTfm6FIi2Pn_1Dk/view?usp=sharing"}, {"n": 8, "en": "Strings and String Manipulation", "ta": "சரங்கள் மற்றும் சரங்களைக் கையாளுதல்", "enUrl": "https://drive.google.com/file/d/1XywNccXUC8F0OMlDN2tnrmmVX0VVZ0KO/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1NmJ3BsyGDzSWKOMwzJr8e0ot0e4OLS2k/view?usp=sharing"}, {"n": 9, "en": "Lists, Tuples, Sets and Dictionary", "ta": "(List, Tuples, Set மற்றும் Dictionary) தொகுப்பு தரவினங்கள்", "enUrl": "https://drive.google.com/file/d/1wQMNYfyjRVpRY5wPH2MKOlUiAZY1Gz0M/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1_owbh-VZ4VzH3PVuaENCU1yFo1bNn2_7/view?usp=sharing"}, {"n": 10, "en": "Python Classes and Objects", "ta": "பைத்தான் இனக்குழுக்கள் மற்றும் பொருள்கள்", "enUrl": "https://drive.google.com/file/d/1GDJ591inPEoChR9vjVQX5HL1JmWBwJIP/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1sPGyQlPSJfu97XH0BCtTBXzcxZx6mGQi/view?usp=sharing"}, {"n": 11, "en": "Database Concepts", "ta": "தரவுதள கருத்துருக்கள்", "enUrl": "https://drive.google.com/file/d/1miHepkXAwyo9JA-NVhCS-1SjIE4jDQ5d/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1f-2liZLuvP5kTng0XCHVdGiS6hy3x1mW/view?usp=sharing"}, {"n": 12, "en": "Structured Query Language (SQL)", "ta": "வினவல் அமைப்பு மொழி (SQL)", "enUrl": "https://drive.google.com/file/d/1ZxZNStLCoBv3uyCAsFciFaoFc4clD1S7/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1tTDesfPjOgyFFN3Rwlxu5dWxIxvs7Wzq/view?usp=sharing"}, {"n": 13, "en": "Python and CSV Files", "ta": "பைத்தான் மற்றும் CSV கோப்புகள்", "enUrl": "https://drive.google.com/file/d/1uIGEbH8vIQnm9FJ8P6-caM_NS-aT07RV/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1Isoocu82clPspV3_Vo1mW33R7Osbmz3I/view?usp=sharing"}, {"n": 14, "en": "Importing C++ Programs in Python", "ta": "பைத்தானில் C++ நிரல்களை தருவித்தல்", "enUrl": "https://drive.google.com/file/d/1B60l5VOwQAWb6HmRbFESGMQ_WCXctwfn/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1Cx8nyd3Ke9m6cs_T5Y2UPoZNwxVksNKg/view?usp=sharing"}, {"n": 15, "en": "Data Manipulation through SQL", "ta": "SQL மூலம் தரவுகளைக் கையாளுதல்", "enUrl": "https://drive.google.com/file/d/11Sqcvx5Cco_I93pGlEzlqYxGuVT_4ikr/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1M1fh_cPv1o08XN8w-HHZ4WU0iYYnsZ8Q/view?usp=sharing"}, {"n": 16, "en": "Data Visualization using Pyplot: Line, Pie and Bar Chart", "ta": "தரவுக் காட்சிப்படுத்துதல்: PYPLOT பயன்படுத்தி – கோட்டு வரைபடம், வட்ட வரைபடம் மற்றும் பட்டை வரைபடம் உருவாக்குதல்", "enUrl": "https://drive.google.com/file/d/1ww2eCoJgGAH81EQ-5JQDno7Op0omVbHg/view?usp=sharing", "taUrl": "https://drive.google.com/file/d/1JbHDB9Ah7duxuoXejZicPXDMDjS5lYF6/view?usp=sharing"}]};
+const SUBJECTS=[
+{id:"cs12",ic:"{ }",std:"12th Standard",name:"Computer Science",c:"#38bdf8",c2:"#818cf8"},
+{id:"ca12",ic:"Σ",std:"12th Standard",name:"Computer Applications",c:"#f59e0b",c2:"#f43f5e"},
+{id:"cs11",ic:"&lt;/&gt;",std:"11th Standard",name:"Computer Science",c:"#34d399",c2:"#22d3ee"},
+{id:"ca11",ic:"▦",std:"11th Standard",name:"Computer Applications",c:"#c084fc",c2:"#f472b6"}];
+const $=id=>document.getElementById(id), root=document.documentElement.style;
+$('subs').innerHTML=SUBJECTS.map(s=>`<button class="sub" data-id="${s.id}" style="--a:${s.c}"><div class="ic">${s.ic}</div><b>${s.std}</b><span>${s.name}</span></button>`).join('');
+const prev=u=>u.replace(/\/view.*$/,'/preview');
+function col(title,tag,list,key){return `<div class="col"><h3>${title}<em>${tag}</em></h3>`+list.map(c=>`<button class="ch" data-n="${c.n}" data-k="${key}"><span class="n">${String(c.n).padStart(2,'0')}</span><span class="t">${c[key]}</span><span class="go">↗</span></button>`).join('')+`</div>`}
+function select(id){
+ const s=SUBJECTS.find(x=>x.id==id);
+ root.setProperty('--ac',s.c);root.setProperty('--ac2',s.c2);
+ document.querySelectorAll('.sub').forEach(b=>b.classList.toggle('on',b.dataset.id==id));
+ $('ptitle').textContent=`${s.std} ${s.name} – Chapters`;
+ const l=DATA[id];
+ $('cols').innerHTML=l?`<div class="cols">${col('தமிழ் வழி','TAMIL MEDIUM',l,'ta')}${col('English Medium','ENGLISH',l,'en')}</div>`:`<div class="soon"><h3>Coming soon</h3><p style="margin-top:8px">Chapter list and links for this subject will be added soon.</p></div>`;
+ $('panel').classList.add('show');$('panel').style.animation='none';void $('panel').offsetWidth;$('panel').style.animation='';
+ $('panel').scrollIntoView({behavior:'smooth',block:'start'});
+ window.cur=id;
+}
+function open_(c,k){
+ const u=k=='ta'?c.taUrl:c.enUrl;
+ $('vt').textContent=`Chapter ${c.n} – ${c[k]}`;$('vo').href=u;$('fr').src=prev(u);$('viewer').classList.add('show');
+}
+function close_(){$('viewer').classList.remove('show');$('fr').src='about:blank'}
+$('subs').onclick=e=>{const b=e.target.closest('.sub');if(b)select(b.dataset.id)};
+$('cols').onclick=e=>{const b=e.target.closest('.ch');if(!b)return;open_(DATA[cur].find(c=>c.n==b.dataset.n),b.dataset.k)};
+$('vc').onclick=close_;document.onkeydown=e=>{if(e.key=='Escape')close_()};
+</script></body></html>
